@@ -5,6 +5,22 @@ import * as data from './weather.json';
 
 const WeatherDays = props => {
   console.log(data.default);
+
+  function groupBy(objectArray, property) {
+    return objectArray.reduce((acc, obj) => {
+      const key = dateFns.format(obj[property], 'dddd'); // Full day name as key
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(obj);
+      return acc;
+    }, {});
+  }
+
+  const groupedDays = groupBy(data.default.list, 'dt_txt');
+
+  console.log(groupedDays);
+
   const listItems = data.default.list.map(e => (
     <Card>
       <Card.Content>
