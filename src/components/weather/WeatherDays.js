@@ -6,8 +6,8 @@ import * as data from './weather.json';
 const WeatherDays = props => {
   console.log(data.default);
 
-  function groupBy(objectArray, property) {
-    return objectArray.reduce((acc, obj) => {
+  const groupBy = (objectArray, property) =>
+    objectArray.reduce((acc, obj) => {
       const key = dateFns.format(obj[property], 'dddd'); // Full day name as key
       if (!acc[key]) {
         acc[key] = [];
@@ -15,29 +15,31 @@ const WeatherDays = props => {
       acc[key].push(obj);
       return acc;
     }, {});
-  }
 
   const groupedDays = groupBy(data.default.list, 'dt_txt');
 
   console.log(groupedDays);
 
-  const listItems = data.default.list.map(e => (
-    <Card>
-      <Card.Content>
-        <Card.Header>{dateFns.format(dateFns.parse(e.dt_txt), 'dddd - DD/MM/YY')}</Card.Header>
-        <Card.Meta>
-          <span className="date">{e.weather[0].description}</span>
-        </Card.Meta>
-        <Card.Description>{e.main.temp_max}</Card.Description>
-        <Card.Description>{e.main.temp_min}</Card.Description>
-      </Card.Content>
-      <Card.Content extra>
-        <a>
-          <Icon name="user" />
-          22 Friends
-        </a>
-      </Card.Content>
-    </Card>
+  const dayKeys = Object.keys(groupedDays);
+
+  const displayDays = [];
+  dayKeys.forEach(day => displayDays.push(groupedDays[day][0]));
+
+  console.log(displayDays);
+
+  const listItems = displayDays.map(e => (
+    <Segment>
+      <Card>
+        <Card.Content>
+          <Card.Header>{dateFns.format(dateFns.parse(e.dt_txt), 'dddd')}</Card.Header>
+          <Card.Meta>
+            <span className="date">{e.weather[0].description}</span>
+          </Card.Meta>
+          <i className={`wi wi-owm-${e.weather[0].id}`} />
+          <Card.Description>{e.main.temp}</Card.Description>
+        </Card.Content>
+      </Card>
+    </Segment>
   ));
   return listItems;
 };

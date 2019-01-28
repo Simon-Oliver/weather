@@ -4,6 +4,7 @@ import Home from '../components/home/Home';
 import PageNotFound from '../components/pageNotFound/PageNotFound';
 import WeatherWeek from '../components/weather/WeatherWeek';
 import Header from '../components/header/Header';
+import WeatherDay from '../components/weather/WeatherDay';
 
 const AppRouter = () => (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const AppRouter = () => (
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/weather" component={WeatherWeek} />
+        <Route path="/weather/day" component={WeatherDay} />
         <Route component={PageNotFound} />
       </Switch>
     </div>

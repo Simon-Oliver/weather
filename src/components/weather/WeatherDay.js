@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
+import { Menu, Segment, Container, Button } from 'semantic-ui-react';
 
-const WeatherDay = props => {
-  const days = [];
-  const listItems = data.default.list.map(e => <li key={e.dt}>{e.dt_txt}</li>);
-  return listItems;
-};
+const WeatherDay = props => <h1>Weather Day view</h1>;
 
 export default WeatherDay;
