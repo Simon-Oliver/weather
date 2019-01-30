@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import dateFns from 'date-fns';
 import { Menu, Segment, Container, Card, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import * as data from './weather.json';
 
 const WeatherDays = props => {
@@ -29,7 +30,13 @@ const WeatherDays = props => {
 
   const listItems = displayDays.map(e => (
     <Segment>
-      <Card>
+      <Card
+        as={Link}
+        to={{
+          pathname: '/weather/day',
+          state: { dayKey: dateFns.format(dateFns.parse(e.dt_txt), 'dddd'), data: groupedDays }
+        }}
+      >
         <Card.Content>
           <Card.Header>{dateFns.format(dateFns.parse(e.dt_txt), 'dddd')}</Card.Header>
           <Card.Meta>
