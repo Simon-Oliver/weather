@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Menu, Segment, Container, Button, SegmentGroup } from 'semantic-ui-react';
-import axios from 'axios';
+import { Segment, Container } from 'semantic-ui-react';
 import WeatherDays from './WeatherDays';
 import * as data from './weather.json';
 import './weatherIcons/css/weather-icons.css';

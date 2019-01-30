@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import dateFns from 'date-fns';
-import { Menu, Segment, Container, Card, Icon } from 'semantic-ui-react';
+import { Segment, Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as data from './weather.json';
 
 const WeatherDays = props => {
-  console.log(data.default);
-
   const groupBy = (objectArray, property) =>
     objectArray.reduce((acc, obj) => {
       const key = dateFns.format(obj[property], 'dddd'); // Full day name as key
@@ -19,17 +17,13 @@ const WeatherDays = props => {
 
   const groupedDays = groupBy(data.default.list, 'dt_txt');
 
-  console.log(groupedDays);
-
   const dayKeys = Object.keys(groupedDays);
 
   const displayDays = [];
   dayKeys.forEach(day => displayDays.push(groupedDays[day][0]));
 
-  console.log(displayDays);
-
   const listItems = displayDays.map(e => (
-    <Segment>
+    <Segment key={e.dt_txt}>
       <Card
         as={Link}
         to={{
