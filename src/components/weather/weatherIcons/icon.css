@@ -1,7 +1,8 @@
 .wi {
-    font-size: 90px;
+  font-size: 90px;
 }
 
 .ui.card i {
-    color: black;
+  color: black;
+  margin: 1rem;
 }

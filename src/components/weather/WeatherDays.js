@@ -23,7 +23,7 @@ const WeatherDays = props => {
   dayKeys.forEach(day => displayDays.push(groupedDays[day][0]));
 
   const listItems = displayDays.map(e => (
-    <Segment key={e.dt_txt}>
+    <Segment key={e.dt_txt} basic>
       <Card
         as={Link}
         to={{

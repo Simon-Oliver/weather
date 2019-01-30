@@ -12,12 +12,14 @@ class WeatherWeek extends Component {
     return (
       <Container>
         <div className="App">
-          <header className="App-header">
-            <h1>{data.default.city.name}</h1>
-            <Segment.Group horizontal>
-              <WeatherDays />
-            </Segment.Group>
-          </header>
+          <Segment basic>
+            <header className="App-header">
+              <h1>{data.default.city.name}</h1>
+              <Segment.Group basic horizontal>
+                <WeatherDays />
+              </Segment.Group>
+            </header>
+          </Segment>
         </div>
       </Container>
     );

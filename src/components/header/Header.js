@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Segment, Container } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import './Header.css';
 
 export default class Header extends Component {
   state = { activeItem: 'home' };
@@ -12,7 +13,7 @@ export default class Header extends Component {
 
     return (
       <Segment inverted vertical>
-        <Menu fixed="top" inverted>
+        <Menu className="navHeader" fixed="top" inverted>
           <Container>
             <Menu.Item
               as={NavLink}
