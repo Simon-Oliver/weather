@@ -6,7 +6,7 @@ const WeatherDay = props => {
   const { dayKey, data } = props.location.state;
 
   const listItems = data[dayKey].map(e => (
-    <Segment basic>
+    <Segment>
       <Card key={e.dt_txt}>
         <Card.Content>
           <Card.Header>{dateFns.format(dateFns.parse(e.dt_txt), 'HH:00')}</Card.Header>
