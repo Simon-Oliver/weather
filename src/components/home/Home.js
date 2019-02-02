@@ -3,16 +3,6 @@ import { Segment, Container } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import * as data from '../../city.list.min.json';
 
-const testList = [
-  'Test',
-  'React',
-  'Simon',
-  'Cheers',
-  'Whoops',
-  'React is Cool',
-  'Thats it thats all'
-];
-
 class Home extends Component {
   state = {
     query: '',

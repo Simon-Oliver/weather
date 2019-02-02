@@ -1,13 +1,13 @@
 import React from 'react';
-import { Segment, Card, Container } from 'semantic-ui-react';
+import { Segment, Card } from 'semantic-ui-react';
 import dateFns from 'date-fns';
 
 const WeatherDay = props => {
   const { dayKey, data } = props.location.state;
 
   const listItems = data[dayKey].map(e => (
-    <Segment>
-      <Card key={e.dt_txt}>
+    <Segment key={e.dt_txt}>
+      <Card>
         <Card.Content>
           <Card.Header>{dateFns.format(dateFns.parse(e.dt_txt), 'HH:00')}</Card.Header>
           <Card.Meta>

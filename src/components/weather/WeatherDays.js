@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import dateFns from 'date-fns';
 import { Segment, Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import * as data from './weather.json';
 
 class WeatherDays extends Component {
   groupBy = (objectArray, property) =>

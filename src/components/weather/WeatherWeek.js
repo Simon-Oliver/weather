@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Segment, Container } from 'semantic-ui-react';
 import axios from 'axios';
 import WeatherDays from './WeatherDays';
-import * as data from './weather.json';
 import './weatherIcons/css/weather-icons.css';
 import './weatherIcons/css/weather-icons-wind.css';
 import './weatherIcons/font/weathericons-regular-webfont.svg';
@@ -34,9 +33,11 @@ class WeatherWeek extends Component {
           <Segment basic>
             <header className="App-header">
               {this.state.weather.list && <h1>{this.state.weather.city.name}</h1>}
-              <Segment.Group basic horizontal>
-                {this.state.weather.list && <WeatherDays weather={this.state.weather} />}
-              </Segment.Group>
+              {this.state.weather.list && (
+                <Segment.Group horizontal>
+                  <WeatherDays weather={this.state.weather} />
+                </Segment.Group>
+              )}
             </header>
           </Segment>
         </div>
