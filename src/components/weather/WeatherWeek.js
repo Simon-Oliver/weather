@@ -18,7 +18,7 @@ class WeatherWeek extends Component {
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?id=${
           this.props.match.params.id
-        }&units=metric&APPID=`
+        }&units=metric&APPID=${process.env.REACT_APP_API_CODE}`
       )
       .then(res => this.setState({ weather: res.data }))
       .catch(error => {
